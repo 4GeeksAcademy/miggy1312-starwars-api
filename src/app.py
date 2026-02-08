@@ -57,7 +57,7 @@ def get_single_planet(planet_id):
 
 @app.route('/users/favorites', methods=['GET'])
 def get_favorites():
-    user_id = 1 # Hardcoded para pruebas
+    user_id = 1 
     user = User.query.get(user_id)
     if not user: return jsonify({"msg": "User not found"}), 404
     return jsonify([fav.serialize() for fav in user.favorites]), 200
